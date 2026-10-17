@@ -1,0 +1,27 @@
+HGSS Wireless Co-op Mod - source files only (no ROMs, no game code)
+
+Contents
+  src/coop.c                  New: all co-op logic (link, partner + follower, menus' networking)
+  include/coop.h              New: co-op API
+  include/constants/coop.h    New: constants shared by the C code and the scripts
+  src/pokewalker_ir.c         New: Pokewalker over a Game Card's IR or the 3DS IR
+  include/pokewalker_ir.h          port (RtcPwalker cheat)
+  hgss_coop_mod.patch         The complete mod as one patch: the 5 new files above
+                              plus every edit to existing decomp files (scripts,
+                              messages, script command table, field hook, battle
+                              engine, Pokegear map, Pokewalker app IR calls,
+                              error-screen debug hooks,
+                              linker layout, Makefile layout check, and
+                              tools/usrcheat_crc/ which keeps the retail memory
+                              layout and usrcheat.dat key so cheats work)
+  README_COOP_MOD.md          Features, controls, how it works, build + test steps
+
+To apply to a fresh copy of the pret/pokeheartgold decompilation:
+  git clone https://github.com/pret/pokeheartgold.git
+  cd pokeheartgold
+  git apply path/to/hgss_coop_mod.patch
+
+The patch already contains the new files, so you don't need to copy
+src/ and include/ by hand. They're here so you can read them easily.
+
+Then build as described in README_COOP_MOD.md ("Building").
